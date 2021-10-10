@@ -1,11 +1,19 @@
 <template>
-  <div>Bienvenu a la maison</div>
+  <div >
+    hello bg
+    <v-card
+  elevation="2"
+>mdr</v-card>
+  </div>
+  
 </template>
 
 <script>
 
+  export default {
+    name: 'Home',
 
-export default {
-  name: 'Home',
-}
+    components: {
+    },
+  }
 </script>
