@@ -4,7 +4,7 @@ export default class ApiRestau {
     static async getRestaurant(pageSize = 10, currentPage = 1,name = '') {
         let dataRestau = await fetch(`${this.root}?pagesize=${pageSize}&page=${currentPage}&name=${name}`)
         let jsonRestau = await dataRestau.json()
-        return jsonRestau.data
+        return jsonRestau
     }
 
     static async getRestaurantCount() {
