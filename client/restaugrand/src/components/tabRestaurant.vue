@@ -99,6 +99,9 @@ import _ from "lodash"
       updatePageSize () {
         this.pageSize = this.sliderNumber
         this.getRestau()
+        if(Math.ceil(this.countSearch/this.pageSize) < this.currentPage) {
+        this.currentPage = Math.ceil(this.countSearch/this.pageSize)
+      }
       },
       getRestauCount () {
          APIRestau.getRestaurantCount().then(res => this.count = res)
