@@ -1,5 +1,8 @@
+<!-- 
 <template>
   <v-app class="globalStyle">
+    
+ 
     <v-app-bar
       app
       color="primary"
@@ -14,16 +17,33 @@
       <router-view/>
     </v-main>
   </v-app>
-</template>
 
+</template>
+!-->
+<template>
+  <v-app class="globalStyle">
+      <v-main>
+          <router-view/>
+           </v-main>
+<TopBar>
+ 
+</TopBar>
+
+  </v-app>
+  </template>
+  
 <script>
+
 
 export default {
   name: 'App',
-
+components: {
+  TopBar: () => import('@/components/TopBar.vue')
+},
   data: () => ({
     //
   }),
+  
 };
 </script>
 
