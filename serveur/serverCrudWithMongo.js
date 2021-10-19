@@ -104,7 +104,7 @@ app.get('/api/restaurants/count', function(req, res) {
 // par exemple les restaurants 10 par 10
 app.get('/api/restaurants', function(req, res) { 
 	// Si présent on prend la valeur du param, sinon 1
-    let page = parseInt(req.query.page || 1);
+    let page = parseInt(req.query.page -1 || 0);
     // idem si present on prend la valeur, sinon 10
     let pagesize = parseInt(req.query.pagesize || 10);
 
