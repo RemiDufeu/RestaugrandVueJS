@@ -13,6 +13,20 @@ export default class ApiRestau {
         return jsonCountRestau.data
     }
 
+    static async addRestaurant(nomRestau, cuisine, borough) {
+        fetch(this.root, {
+            method: "POST",
+            body: {
+                name : nomRestau,
+                cuisine : cuisine,
+                borough : borough
+            },
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
+    }
+
     async supprimerRestaurant(id) {
         try {
             let reponseJSON = await fetch(this.root + "/" + id, {
