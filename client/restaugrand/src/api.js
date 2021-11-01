@@ -13,18 +13,12 @@ export default class ApiRestau {
         return jsonCountRestau.data
     }
 
-    static async addRestaurant(nomRestau, cuisine, borough) {
-        fetch(this.root, {
+    static async addRestaurant(form) {
+        let promise = await fetch(this.root, {
             method: "POST",
-            body: {
-                name : nomRestau,
-                cuisine : cuisine,
-                borough : borough
-            },
+            body: form
         })
-        .catch(function (err) {
-            console.log(err);
-        });
+        return promise
     }
 
     async supprimerRestaurant(id) {

@@ -16,6 +16,11 @@
         :value="overlay"
         >
             <v-card class="pa-5" grow color="white" style="width:350px">
+                <form
+                id="formAjout"
+                action="/something" 
+                method="post"
+                @submit.prevent="ajoutRestau($event)">
                 <v-text-field
                 class="pa-3"
                 light
@@ -24,6 +29,7 @@
                 required
                 hide-details="auto"
                 v-model="nomRestau"
+                name="nom"
                 ></v-text-field>
                 <v-text-field
                 class="pa-3"
@@ -34,6 +40,7 @@
                 required
                 hide-details="auto"
                 v-model="cuisine"
+                name="cuisine"
                 ></v-text-field>
                 <v-text-field
                 class="pa-3"
@@ -44,6 +51,7 @@
                 required
                 hide-details="auto"
                 v-model="borough"
+                name="borough"
                 ></v-text-field>
                 <v-alert type="error my-4" dense outlined dismissible v-if="error!=''">{{error}}</v-alert>
                 <div class="pa-5 d-flex justify-space-between">
@@ -56,10 +64,11 @@
                     <v-btn
                         class="white--text"
                         color="secondary"
-                        @click="ajoutRestau()">
+                        type="submit">
                         Enregistrer
                     </v-btn>
                 </div>
+                </form>
             </v-card>
         </v-overlay>
     </div>
@@ -79,22 +88,22 @@
         cuisine: ''
         }),
         methods : {
-            ajoutRestau() {
-                if (this.nomRestau == '') {
-                    this.error = 'Veuillez renseigner le nom du restaurant'
-                } else if (this.cuisine == '') {
-                    this.error = 'Veuillez renseigner la cuisine du restaurant'
-                } else if (this.borough == '') {
-                    this.error = 'Veuillez renseigner la localisation du restaurant'
+            async ajoutRestau(e) {
+                let form = e.target
+                let donneesForm = new FormData(form)
+
+                let retour = await APIRestau.addRestaurant(donneesForm)
+                
+                if(retour.ok) {
+                    this.nomRestau = ''
+                    this.borough = ''
+                    this.cuisine = ''
+                    this.overlay = false
+                    this.error = ''
                 } else {
-                    APIRestau.addRestaurant(this.nomRestau,this.cuisine,this.borough).then(res => {
-                        this.overlay = false
-                        this.error = ''
-                    })
-                    .catch ( error => {
-                        this.error = "une erreur inatendu est arrivé"
-                    })
+                    this.error = retour.statusText
                 }
+                
             }
         }
     }
