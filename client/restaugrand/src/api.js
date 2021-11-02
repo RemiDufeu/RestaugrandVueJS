@@ -6,7 +6,11 @@ export default class ApiRestau {
         let jsonRestau = await dataRestau.json()
         return jsonRestau
     }
-
+    static async getOneRestau(id) {
+        let dataRestau = await fetch(`${this.root}/${id}`)
+        let jsonRestau = await dataRestau.json()
+        return jsonRestau
+    }
     static async getRestaurantCount() {
         let dataCountRestau = await fetch(`${this.root}/count`)
         let jsonCountRestau = await dataCountRestau.json()
@@ -21,7 +25,7 @@ export default class ApiRestau {
         return promise
     }
 
-    async supprimerRestaurant(id) {
+    static async supprimerRestaurant(id) {
         try {
             let reponseJSON = await fetch(this.root + "/" + id, {
                 method:"DELETE"

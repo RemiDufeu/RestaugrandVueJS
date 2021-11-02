@@ -108,11 +108,13 @@ import _ from "lodash"
       },
       deleteItem(item) {
         //TODO
+       
+        // console.log("id :"+item.id)
+       // APIRestau.supprimerRestaurant(item.restaurant_id);
         console.log(item)
       },
       editItem(item) {
-        //TODO
-        console.log(item)
+        this.$router.push({ path: '/about/'+item._id })
       },
       nameChange :  _.debounce(function() {
         this.getRestau()
