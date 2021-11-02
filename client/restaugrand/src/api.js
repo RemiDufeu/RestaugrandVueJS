@@ -25,17 +25,27 @@ export default class ApiRestau {
         return promise
     }
 
-    static async supprimerRestaurant(id) {
+      static async supprimerRestaurant(id) {
+        console.log("reponseJSON");
         try {
             let reponseJSON = await fetch(this.root + "/" + id, {
                 method:"DELETE"
             });
+            console.log("reponseJSON : "+ reponseJSON)
             let reponseJS = await reponseJSON.json();
             console.log("Restaurant supprime : " + reponseJS.msg);
             this.getDataFromServer(); // on rafraichit l'affichage
         } catch(err) {
-            console.log("Erreur dans le fetchs DELETE " + err.msg);
+            if (!err.response) {
+                // network error
+                this.errorStatus = 'Error: Network Error';
+            } else {
+                this.errorStatus = err.response.data.message;
+                console.log(this.errorStatus);
+            }
+           
         }
+        
     }
     
 }
