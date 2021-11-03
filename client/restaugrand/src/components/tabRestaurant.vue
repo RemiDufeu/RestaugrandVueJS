@@ -107,10 +107,9 @@ import _ from "lodash"
          APIRestau.getRestaurantCount().then(res => this.count = res)
       },
       deleteItem(item) {
-        //TODO
        
-        // console.log("id :"+item.id)
-       // APIRestau.supprimerRestaurant(item.restaurant_id);
+        console.log("id :"+item.restaurant_id)
+        APIRestau.supprimerRestaurant(item._id);
         console.log(item)
       },
       editItem(item) {
