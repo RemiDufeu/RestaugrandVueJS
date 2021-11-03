@@ -53,7 +53,7 @@
                     class="white--text"
                     color="secondary"
                     type="submit">
-                    Enregistrer
+                    Mettre a jour
                 </v-btn>
             </div>
             </form>

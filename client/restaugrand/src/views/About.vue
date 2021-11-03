@@ -22,13 +22,13 @@
         :center="center"
         :zoom="zoom"
         class="map"
-        ref="map"
-        @update:center="centerUpdated">
+        ref="map">
       <l-marker
         key="restaurant"
         :lat-lng="center"
+        :icon="icon"
+        :icon-anchor="icon.iconAnchor"
         >
-        <l-icon-default ref="icon"></l-icon-default>
       </l-marker>
       <l-tile-layer
         :url="url">
@@ -40,7 +40,8 @@
 
 <script>
   import APIRestau from '../api'
-  import { LMap, LTileLayer,LMarker, LIconDefault } from 'vue2-leaflet';
+  import { LMap, LTileLayer,LMarker } from 'vue2-leaflet';
+  import { icon } from "leaflet";
   import 'leaflet/dist/leaflet.css';
 
   export default {
@@ -48,15 +49,19 @@
     components: {
       LMap,
       LTileLayer,
-      LMarker,
-      LIconDefault
+      LMarker
     },
     data: function() {
       return {
         restauData : '',
         url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
         zoom: 17,
-        center : [0,0]
+        center : [0,0],
+        icon: icon({
+          iconUrl: "http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/map-marker-icon.png",
+          iconSize: [32, 37],
+          iconAnchor: [0, 0]
+        }),
       }
     },
     mounted () {
@@ -74,7 +79,8 @@
         console.log("todo")
       },
       centerUpdated (center) {
-        this.center = center;
+        this.center = center
+        this.iconAnchor = center
       }
     }
   }

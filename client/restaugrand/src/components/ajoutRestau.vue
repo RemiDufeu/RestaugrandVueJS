@@ -65,7 +65,7 @@
                         class="white--text"
                         color="secondary"
                         type="submit">
-                        Enregistrer
+                        Ajouter
                     </v-btn>
                 </div>
                 </form>
