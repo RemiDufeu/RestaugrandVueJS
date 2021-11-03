@@ -181,7 +181,8 @@ exports.updateRestaurant = function(id, formData, callback) {
             let myquery = { "_id": ObjectId(id)};
 	        let newvalues = {
 	        	name : formData.nom, 
-	        	cuisine : formData.cuisine
+	        	cuisine : formData.cuisine,
+				borough : formData.borough,
 	        };
 
 

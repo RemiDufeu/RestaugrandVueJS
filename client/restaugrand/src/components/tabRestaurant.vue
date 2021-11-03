@@ -32,6 +32,13 @@
         >
           mdi-delete
         </v-icon>
+        <v-icon
+          small
+          class="ml-2"
+          @click="detailsItem(item)"
+        >
+          mdi-arrow-right-drop-circle
+        </v-icon>
       </template>
       </v-data-table>
     <div class="text-center">
@@ -54,6 +61,7 @@
         
       </div>
     </div>
+    <edit-restau :overlayOn="overlayEdition" :itemEdition="itemEdition" :closeOverlay="closeEditOverlay" :refreshRestau="getRestau"/>
   </div>
 </template>
 
@@ -61,6 +69,7 @@
 
 import APIRestau from '../api'
 import _ from "lodash"
+import EditRestau from './editRestau.vue'
 
   export default {
     name: 'tableauRestaurant',
@@ -79,9 +88,12 @@ import _ from "lodash"
         name : '',
         countSearch : 0,
         sliderNumber : 10,
+        itemEdition : '',
+        overlayEdition : false
       }
     },
     components: {
+        EditRestau
     },
     mounted (){
       this.getRestauCount()
@@ -107,13 +119,18 @@ import _ from "lodash"
          APIRestau.getRestaurantCount().then(res => this.count = res)
       },
       deleteItem(item) {
-       
-        console.log("id :"+item.restaurant_id)
-        APIRestau.supprimerRestaurant(item._id);
-        console.log(item)
+        APIRestau.supprimerRestaurant(item._id)
+        .then(res => this.getRestau())
       },
       editItem(item) {
+        this.itemEdition = { name : item.name, cuisine : item.cuisine, borough : item.borough, id : item._id}
+        this.overlayEdition = true
+      },
+      detailsItem(item) {
         this.$router.push({ path: '/about/'+item._id })
+      },
+      closeEditOverlay() {
+        this.overlayEdition = false
       },
       nameChange :  _.debounce(function() {
         this.getRestau()
