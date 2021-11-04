@@ -1,39 +1,41 @@
 <template>
-  <div class="container">
-    <h1 class="pa-4 mx-auto text-center">Modification du restaurant</h1>
-    <form class="pa-4 mx-auto" style="max-width : 750px">
-      <v-text-field label="Nom du restaurant" v-model="restauData.name" required></v-text-field>
-      <v-text-field label="Cuisine du restaurant" v-model="restauData.cuisine" required></v-text-field>
-      <v-text-field label="Arrondissment" v-model="restauData.borough" required></v-text-field>
-      <div class="text-right pa-4">
-        <v-btn
-          class="white--text"
-          color="secondary"
-          @click="updateRestau()">
-          Enregistrer
-        </v-btn>
-      </div>
-    </form>
-    <div class="pa-4 mx-auto text-center">
-      <img src="../assets/imgRestau.jpg" width="100%" height="auto" class="pa-4 mx-auto" style="max-width : 750px"/>
-    </div>
+  <div class="container text-center">
+    <v-btn
+      elevation="2"
+      fab
+      top
+      fixed
+      left
+      color="secondary"
+      @click="$router.back()"
+      class="buttonBack"
+      >
+      <v-icon>mdi-arrow-left</v-icon>
+    </v-btn>
+    <h1 class="pa-4 mx-auto text-center">{{restauData.name}}</h1>
+    <h3 class="pa-4 mx-auto text-center">{{restauData.cuisine}}</h3>
+    <v-divider></v-divider>
+    <div class="containerPage">
+    <h2 class="text-left pa-4">Où nous trouver ?</h2>
     <div class="mapContainer">
       <l-map
         :center="center"
         :zoom="zoom"
         class="map"
         ref="map">
-      <l-marker
-        key="restaurant"
-        :lat-lng="center"
-        :icon="icon"
-        :icon-anchor="icon.iconAnchor"
-        >
-      </l-marker>
-      <l-tile-layer
-        :url="url">
-      </l-tile-layer>
-    </l-map>
+        <l-marker
+          key="restaurant"
+          :lat-lng="center"
+          :icon="icon"
+          :icon-anchor="icon.iconAnchor"
+          >
+        </l-marker>
+          <l-tile-layer
+            :url="url">
+          </l-tile-layer>
+        </l-map>
+      </div>
+      <h4 class="text-right pa-4 pr-8">{{restauData.borough}}</h4>
     </div>
   </div>
 </template>
@@ -45,7 +47,7 @@
   import 'leaflet/dist/leaflet.css';
 
   export default {
-    name: 'About',
+    name: 'DetailsRestaurant',
     components: {
       LMap,
       LTileLayer,
@@ -75,9 +77,6 @@
           this.centerUpdated([this.restauData.address.coord[1],this.restauData.address.coord[0]])
           })
       },
-      updateRestau () {
-        console.log("todo")
-      },
       centerUpdated (center) {
         this.center = center
         this.iconAnchor = center
@@ -100,5 +99,11 @@
     height: 300px;
     position: relative;
 }
-
+.containerPage {
+  margin: auto;
+  max-width: 800px;
+}
+.buttonBack {
+  margin-top: 75px;
+}
 </style>

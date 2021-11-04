@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-6" style="width : 100%">
+  <div class="mx-1">
       <h2 class="mt-8">Trouver votre restaurant parmis les {{count}} présents sur notre site</h2>
       <v-divider/>
       <v-text-field
