@@ -194,10 +194,7 @@ export default {
   },
   methods: {
     SelectionMenu() {
-      console.log("in selection menu");
-      // 6= max = this.Menus.length() et 0 est laissé pour visualiser le min facilement
       let NmbrMenus = Math.floor(Math.random() * (6 - 2 + 1)) + 2;
-      console.log("nmbremenu : " + NmbrMenus);
       for (let i = 0; i < NmbrMenus; i++) {
         let aleatoire = Math.floor(Math.random() * (15 - 0 + 1)) + 0;
 
@@ -215,13 +212,11 @@ export default {
       });
     },
     getRandomMenu: function (typeCuisine) {
-      console.log("style de cuisine : " + typeCuisine);
       let Carte = new CartesDesPlats("");
       for (let i = 0; i++; i < 20) {
         let menu = Menus("");
         menu.getMenus();
         Carte.ajouterMenus(menu);
-        console.log("menu : " + menu);
       }
     },
   },
