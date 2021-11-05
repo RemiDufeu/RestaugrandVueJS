@@ -11,6 +11,13 @@ export default class ApiRestau {
         let jsonRestau = await dataRestau.json()
         return jsonRestau
     }
+
+    static async getOneRestauCuisine(id) {
+        let dataRestau = await fetch(`http://localhost:8080/api/restaurants/617f27cc315e3ce402f6eee4`);
+        let jsonRestau = await dataRestau.json();
+        return jsonRestau
+    }
+
     static async getRestaurantCount() {
         let dataCountRestau = await fetch(`${this.root}/count`)
         let jsonCountRestau = await dataCountRestau.json()

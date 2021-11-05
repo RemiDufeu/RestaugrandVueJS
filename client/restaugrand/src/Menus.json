@@ -1,0 +1,23 @@
+[
+    {
+        "id": "1",
+        "TypeCuisine": "Burgers",
+        "HorsDOeuvre": "Salade seule",
+        "Plat": "Burger montagnard",
+        "Dessert": "Cookie chocolat"
+    },
+    {
+        "id": "2",
+        "TypeCuisine": "Burger",
+        "HorsDOeuvre": "salade cézare",
+        "Plat": "cheeseburger",
+        "Dessert": "cheesecake"
+    },
+    {
+        "id": "3",
+        "TypeCuisine": "Burger",
+        "HorsDOeuvre": "soupe potiron",
+        "Plat": "Burger Tomme Truffe",
+        "Dessert": "tiramisu"
+    }
+]

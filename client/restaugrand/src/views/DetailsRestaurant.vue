@@ -37,6 +37,7 @@
       </div>
       <h4 class="text-right pa-4 pr-8">{{restauData.borough}}</h4>
     </div>
+    <Menu></Menu>
   </div>
 </template>
 
@@ -45,13 +46,15 @@
   import { LMap, LTileLayer,LMarker } from 'vue2-leaflet';
   import { icon } from "leaflet";
   import 'leaflet/dist/leaflet.css';
+  import Menu from '../components/Menu.vue'
 
   export default {
     name: 'DetailsRestaurant',
     components: {
       LMap,
       LTileLayer,
-      LMarker
+      LMarker,
+      Menu
     },
     data: function() {
       return {
