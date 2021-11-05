@@ -37,7 +37,10 @@
       </div>
       <h4 class="text-right pa-4 pr-8">{{restauData.borough}}</h4>
     </div>
-    <Menu></Menu>
+    <div class="containerPage">
+      <Menu></Menu>
+      <Carte></Carte>
+    </div>
   </div>
 </template>
 
@@ -47,6 +50,7 @@
   import { icon } from "leaflet";
   import 'leaflet/dist/leaflet.css';
   import Menu from '../components/Menu.vue'
+  import Carte from '../components/Carte.vue'
 
   export default {
     name: 'DetailsRestaurant',
@@ -54,7 +58,8 @@
       LMap,
       LTileLayer,
       LMarker,
-      Menu
+      Menu,
+      Carte
     },
     data: function() {
       return {
