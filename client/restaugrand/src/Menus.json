@@ -1,23 +1,121 @@
-[
-    {
+{
+    "Hors D'oeuvres": [{
         "id": "1",
-        "TypeCuisine": "Burgers",
-        "HorsDOeuvre": "Salade seule",
-        "Plat": "Burger montagnard",
-        "Dessert": "Cookie chocolat"
+        "TypeCuisine": "Hamburgers",
+        "Intitulé" : "salade pour Hamburgers"
     },
     {
         "id": "2",
-        "TypeCuisine": "Burger",
-        "HorsDOeuvre": "salade cézare",
-        "Plat": "cheeseburger",
-        "Dessert": "cheesecake"
+        "TypeCuisine": "Irish",
+        "Intitulé" : "entrée irlandaise"
     },
     {
         "id": "3",
-        "TypeCuisine": "Burger",
-        "HorsDOeuvre": "soupe potiron",
-        "Plat": "Burger Tomme Truffe",
-        "Dessert": "tiramisu"
+        "TypeCuisine": "Jewish/Kosher",
+        "Intitulé" : "salade juive"
+    },{
+        "id": "4",
+        "TypeCuisine": "American",
+        "Intitulé" : "salade américaine"
+    },{
+        "id": "5",
+        "TypeCuisine": "Delicatessen",
+        "Intitulé" : "salade germanique"
+    },{
+        "id": "6",
+        "TypeCuisine": "Sandwiches/Salads/Mixed Buffet",
+        "Intitulé" : "salade composée"
+    },{
+        "id": "7",
+        "TypeCuisine": "Bagels/Pretzels",
+        "Intitulé" : "bagel miniature"
+    },{
+        "id": "8",
+        "TypeCuisine": "Italian",
+        "Intitulé" : "salade italienne"
+    },{
+        "id": "9",
+        "TypeCuisine": "Mexican",
+        "Intitulé" : "salade mexicaine"
     }
-]
+],
+"Plat": [{
+    "id": "1",
+    "TypeCuisine": "Hamburgers",
+    "Intitulé" : "Hamburgers"
+},
+{
+    "id": "2",
+    "TypeCuisine": "Irish",
+    "Intitulé" : "panse brebis farcis"
+},
+{
+    "id": "3",
+    "TypeCuisine": "Jewish/Kosher",
+    "Intitulé" : "boulgour"
+},{
+    "id": "4",
+    "TypeCuisine": "American",
+    "Intitulé" : "sandwich américaine"
+},{
+    "id": "5",
+    "TypeCuisine": "Delicatessen",
+    "Intitulé" : "salade germanique"
+},{
+    "id": "6",
+    "TypeCuisine": "Sandwiches/Salads/Mixed Buffet",
+    "Intitulé" : "salade composée"
+},{
+    "id": "7",
+    "TypeCuisine": "Bagels/Pretzels",
+    "Intitulé" : "bagel "
+},{
+    "id": "8",
+    "TypeCuisine": "Italian",
+    "Intitulé" : "PIZZA"
+},{
+    "id": "9",
+    "TypeCuisine": "Mexican",
+    "Intitulé" : "fajitas"
+}
+], "Dessert": [{
+    "id": "1",
+    "TypeCuisine": "Hamburgers",
+    "Intitulé" : "cheesecake"
+},
+{
+    "id": "2",
+    "TypeCuisine": "Irish",
+    "Intitulé" : "cake irlandais"
+},
+{
+    "id": "3",
+    "TypeCuisine": "Jewish/Kosher",
+    "Intitulé" : "gateau juif"
+},{
+    "id": "4",
+    "TypeCuisine": "American",
+    "Intitulé" : "cheesecake chocolate"
+},{
+    "id": "5",
+    "TypeCuisine": "Delicatessen",
+    "Intitulé" : "gateau bavarois"
+},{
+    "id": "6",
+    "TypeCuisine": "Sandwiches/Salads/Mixed Buffet",
+    "Intitulé" : "cookies"
+},{
+    "id": "7",
+    "TypeCuisine": "Bagels/Pretzels",
+    "Intitulé" : "bagel sucre"
+},{
+    "id": "8",
+    "TypeCuisine": "Italian",
+    "Intitulé" : "pizza nutella"
+},{
+    "id": "9",
+    "TypeCuisine": "Mexican",
+    "Intitulé" : "dessert mexicain"
+}]
+}
+
