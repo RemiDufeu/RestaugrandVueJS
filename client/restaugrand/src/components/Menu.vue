@@ -1,14 +1,16 @@
 <template>
   <div>
     <div class="d-flex justify-space-around flex-wrap">
-      <v-card v-for="menu in Menus" :key="menu.nom" width="250" class="ma-4">
+      <v-card v-for="menu in Menus" :key="menu.nom" width="250" class="ma-4 pa-3">
         <h2>{{ menu.nom }}</h2>
-        <div class="d-flex justify-space-around flex-column h-100">
-          <h4 v-if="menu.service.entree">Entrée</h4>
-          <h4 v-if="menu.service.plat">Plat</h4>
-          <h4 v-if="menu.service.dessert">Dessert</h4>
-          <h4 v-if="menu.service.entreeOuDessert">Entrée ou Dessert</h4>
+        <div class="d-flex justify-center flex-column my-4 h96">
+          <h4 v-if="menu.service.entree" class="my-1">Entrée</h4>
+          <h4 v-if="menu.service.plat" class="my-1">Plat</h4>
+          <h4 v-if="menu.service.dessert" class="my-1">Dessert</h4>
+          <h4 v-if="menu.service.entreeOuDessert" class="my-1">Entrée ou Dessert</h4>
         </div>
+        <v-divider></v-divider>
+        <h3 class="my-4">{{menu.prix}}$</h3>
       </v-card>
     </div>
   </div>
@@ -24,6 +26,7 @@ export default {
   data: function () {
     return {
       TypeCuisine: "",
+      menu:"",
       Menus: [
        {
           nom : "Formule déjeuner",
@@ -60,6 +63,7 @@ export default {
   },
   mounted() {
     this.getTypeCuisine(this.$route.params.id);
+     this.getRandomMenu(this.TypeCuisine);
   },
   methods: {
     getTypeCuisine(id) {
@@ -76,7 +80,7 @@ export default {
       let Carte = new CartesDesPlats("");
       for (let i = 0; i++; i < 20) {
         let menu = Menus("");
-        menu.getRandomMenu();
+        menu.getMenus();
         Carte.ajouterMenus(menu);
         console.log("menu : " + menu);
       }
@@ -84,3 +88,9 @@ export default {
   },
 };
 </script>
+
+<style>
+.h96 {
+  height: 96px;
+}
+</style>
