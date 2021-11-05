@@ -12,21 +12,24 @@
   
 
   export default {
-    name: 'Menu',
+    name: 'ViewMenu',
     data: function() {
       return {
-        restauData : ''
+        TypeCuisine : ''
       }
     },
     mounted () {
-      console.log("in viewMenus")
-      console.log(JSON.stringify(APIRestau.getOneRestauCuisine(this.$route.params.id).cuisine));
-      let test = APIRestau.getOneRestauCuisine(1).then(res => test = res);
-      
-      console.log("TEST ===" + test);
-      //this.getRandomMenu( APIRestau.getOneRestau(this.$route.params.id));
+        this.getTypeCuisine(this.$route.params.id);
     },
     methods : {
+      getTypeCuisine(id){
+       console.log("in getTypeCuisine");
+     // console.log(JSON.stringify(APIRestau.getOneRestauCuisine(this.$route.params.id)));
+    
+       APIRestau.getOneRestauCuisine(id).then(res => this.TypeCuisine = res.Cuisine);
+       setTimeout(function(){ console.log("TEST ===" + this.TypeCuisine); }, 3000); 
+         }
+         ,
       getRandomMenu:function(typeCuisine){
           console.log("style de cuisine : "+ typeCuisine);
           let Carte  = new CartesDesPlats(""); 

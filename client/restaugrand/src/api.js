@@ -18,15 +18,20 @@ export default class ApiRestau {
      }
     static async getOneRestauCuisine(id) {
       
-
+        console.log("IN GETONERESTAURANTCUISINE 1");
        //   let dataRestau = await fetch(`${this.root}/${id}`)
-        let dataRestau = await fetch(`http://localhost:8080/api/restaurants/5f6a0a29d20dbe076d7b41e3`)
-        let jsonRestau = await dataRestau.json()
-   
-        console.log("CUISINE =="+jsonRestau.restaurant.cuisine);
-        let jsonRestauCuisine = JSON.stringify(jsonRestau.restaurant.cuisine)
-        return new Promise(resolve => {setTimeout(() => {resolve({metadata: `for: ${jsonRestauCuisine}`}); }, 1000);  });
-        //return JSON.stringify(jsonRestauCuisine)
+        let dataRestau = await fetch(`http://localhost:8080/api/restaurants/5f6a0a29d20dbe076d7b41e3`);
+        let jsonRestau = await dataRestau.json();
+        console.log("IN GETONERESTAURANTCUISINE  2");
+       let jsonRestauCuisine = JSON.stringify(jsonRestau.restaurant.cuisine);
+        console.log("CUISINE ==");
+        console.log(jsonRestauCuisine); 
+
+        return jsonRestau
+ 
+        
+        //return un object promise au lieu d'un string
+        
     }
     static async getRestaurantCount() {
         let dataCountRestau = await fetch(`${this.root}/count`)
